@@ -1,0 +1,13 @@
+all:test_static.o matrix_static.o
+	gcc -o all test_static.o matrix_static.o -o test
+
+test_static.o: test_static.c matrix_static.h
+	gcc -O -Wall -c test_static.c
+
+matrix_static.o: matrix_static.c matrix_static.h
+	gcc -O -Wall -c matrix_static.c
+
+clean:
+	rm -f test_dynamic.o matrix_dynamic.o test_static.o matrix_static.o
+	rm -f test
+
