@@ -1,0 +1,13 @@
+all:test_dynamic.o matrix_dynamic.o
+	gcc -o all test_dynamic.o matrix_dynamic.o -o test
+
+test_dynamic.o: test_dynamic.c matrix_dynamic.h
+	gcc -O -Wall -c test_dynamic.c
+
+matrix_dynamic.o: matrix_dynamic.c matrix_dynamic.h
+	gcc -O -Wall -c matrix_dynamic.c
+
+clean:
+	rm -f test_dynamic.o matrix_dynamic.o test_static.o matrix_static.o
+	rm -f test
+
